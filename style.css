@@ -1,0 +1,96 @@
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+    font-family: monospace;
+}
+
+h1{
+    text-align: center;
+    margin-bottom: 20px;
+    text-decoration: underline double #212121;
+}
+
+h3{
+    margin-bottom: 5px;
+}
+
+ul{
+    margin: 15px;
+}
+li{
+    font-weight: bold;
+}
+
+.screen{
+    height: 100vh;
+    width: 100%;
+    background-color: aqua;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+}
+
+.app{
+    background-color: beige;
+    width: 600px;
+    border: 10px solid rgb(0, 255, 170);
+    border-radius: 10px;
+    padding: 20px;
+}
+
+.bmi{
+    display: flex;
+    font-weight: bolder;
+    color: #212121;
+    justify-content: space-between;
+    flex-wrap: wrap;
+    margin: 5px;
+}
+
+.bmi div{
+    margin-top: 10px;
+}
+
+input{
+    width: 200px;
+    color: #212121;
+    font-weight: bold;
+    height: 23px;
+    padding: 5px;
+    outline: none;
+    margin: 0px 0px 10px 0px;
+}
+
+button{
+    padding: 5px 20px;
+    font-weight: bold;
+    font-size: large;
+    color: #212121;
+    background-color: beige;
+    text-align: center;
+    border-radius: 5px;
+    border: 2px solid #212121;
+    display: block;
+    margin: 20px 0px;
+}
+
+.msg{
+    width: 285px;
+    height: 40px;
+    background-color: beige;
+    margin: auto;
+    border: 2px solid black;
+    border-radius: 10px;
+    padding: 4px 10px;
+}
+
+@media(max-width: 600px){
+.app{
+    width: 340px;
+}
+
+input{
+    margin-top: 10px;
+}
+}
