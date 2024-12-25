@@ -75,7 +75,7 @@ button{
     margin: 20px 0px;
 }
 
-.msg{
+.msgContainer{
     width: 285px;
     height: 40px;
     background-color: beige;

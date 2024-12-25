@@ -1,5 +1,6 @@
-let username = prompt("Enter your name: ") 
+let username = prompt("Enter your name: ");
 let form = document.querySelector("form");
+let msgContainer = document.querySelector(".msgContainer")
 form.addEventListener('submit', (e) => {
     e.preventDefault();
 
@@ -8,43 +9,26 @@ form.addEventListener('submit', (e) => {
     let msg = document.querySelector('.msg');
 
     let footHeight = height/3.28
-    let totalHeight = footHeight*footHeight 
-    const result = (weight / totalHeight).toFixed(2)
-    msg.innerHTML = `dear ${username}, your BMI is ${result}`;
+    let totalHeight = footHeight*footHeight
+    result = (weight / totalHeight).toFixed(2);
 
-    if (result <= 18.5) {
-        msg.innerHTML = `dear ${username}, your BMI is ${result}. You are underweighted`;
-        
-    } else if(result <= 25){
-        msg.innerHTML = `dear ${username}, your BMI is ${result}. You are healthy`;
-    } else if(result <= 29){
-        msg.innerHTML = `dear ${username}, your BMI is ${result}. You are overweighted`;
+    if (weight === '' || weight <= 0 || isNaN(weight)) {
+        msg.innerHTML = `Enter a valid weight`
+    }else if(height === '' || height <= 0 || isNaN(height)) {
+        msg.innerHTML = `Enter a valid height`
     }else{
-        msg.innerHTML = `dear ${username}, your BMI is ${result}. You are Obese`;
+        if (result <= 18.5) {
+            msg.innerHTML = `dear ${username}, your BMI is ${result}. You are underweighted`;
+            msgContainer.style.backgroundColor = '#f9a620'
+        } else if(result <= 25){
+            msg.innerHTML = `dear ${username}, your BMI is ${result}. You are healthy`;
+            msgContainer.style.backgroundColor = '#70e000'
+        } else if(result < 30){
+            msg.innerHTML = `dear ${username}, your BMI is ${result}. You are overweighted`;
+            msgContainer.style.backgroundColor = '#f9a620'
+        }else{
+            msgContainer.style.backgroundColor = '#c00000'
+            msg.innerHTML = `dear ${username}, your BMI is ${result}. You are Obese`;
+        }
     }
-})
-
-
-
-//const form = document.querySelector('form');
-// this usecase will give you empty
-// const height = parseInt(document.querySelector('#height').value)
-
-// form.addEventListener('submit', function (e) {
-//   e.preventDefault();
-
-//   const height = parseInt(document.querySelector('.height').value);
-//   const weight = parseInt(document.querySelector('.weight').value);
-//   const results = document.querySelector('.results');
-
-//   if (height === '' || height < 0 || isNaN(height)) {
-//     results.innerHTML = `Please give a valid height ${height}`;
-//   } else if (weight === '' || weight < 0 || isNaN(weight)) {
-//     results.innerHTML = `Please give a valid weight ${weight}`;
-//   } else {
-//     const bmi = (weight / ((height * height))).toFixed(2);
-//     //show the result
-//     results.innerHTML = `<span>${bmi}</span>`;
-//   }
-// });
-
+});
